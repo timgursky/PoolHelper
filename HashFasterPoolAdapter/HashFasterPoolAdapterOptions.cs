@@ -7,7 +7,7 @@ namespace PoolAdapters
     {
         public string ApiKey { get; set; }
         public int UserId { get; set; }
-        public NetworkCredential Credentialses { get; set; }
+        public NetworkCredential Credentials { get; set; }
 
         public HashFasterPoolAdapterOptions(string apiKey, int userId)
         {
@@ -17,7 +17,7 @@ namespace PoolAdapters
 
         public HashFasterPoolAdapterOptions(NetworkCredential credentials)
         {
-            Credentialses = credentials;
+            Credentials = credentials;
         }
     }
 }

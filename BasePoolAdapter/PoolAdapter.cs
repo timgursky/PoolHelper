@@ -1,5 +1,4 @@
-﻿using System.Net;
-using BasePoolAdapter;
+﻿using BasePoolAdapter;
 using BasePoolAdapter.Events;
 
 namespace PoolAdapters
@@ -8,7 +7,6 @@ namespace PoolAdapters
     {
         public string PoolName { get; protected set; }
         public string PoolUrl { get; protected set; }
-        public NetworkCredential Credentials { get; set; }
 
         public abstract void GetPoolStatsAsync();
         

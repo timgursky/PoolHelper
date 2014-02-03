@@ -30,7 +30,7 @@ namespace PoolAdapters
 
             var poolStats = new PoolStats
             {
-                GatheredOn = new DateTime(),
+                GatheredOn = DateTime.Now,
                 ConfirmedBalance = parsedResponse.Value<decimal>("confirmed_rewards"),
                 PaidOutAmount = parsedResponse.Value<decimal>("payout_history"),
                 Round = new PoolRound
