@@ -26,9 +26,11 @@ namespace PoolHelper.UI
         {
             InitializeComponent();
 
-            PoolAdapter adapter = new HashFasterPoolAdapter();
+            PoolAdapter adapter = new HashFasterPoolAdapter(new HashFasterPoolAdapterOptions(new NetworkCredential("mad.hedgehogg@gmail.com", "D3dCgtBtgnDXhKeh")));
+            
+            adapter.GetPoolStatsAsync();
 
-            adapter = new WeMineLtcPoolAdapter(@"beb7a2aed41cbb959cc2190cd00bc7da431681a6a76c802191fd3d387cca1e72");
+            adapter = new WeMineLtcPoolAdapter(new WeMineLtcPoolAdapterOptions(@"beb7a2aed41cbb959cc2190cd00bc7da431681a6a76c802191fd3d387cca1e72"));
 
             adapter.GetPoolStatsAsync();
         }

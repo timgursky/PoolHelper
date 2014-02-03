@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="WeMineLtcPoolAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeMineLtcPoolAdapterOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BasePoolAdapter\BasePoolAdapter.csproj">

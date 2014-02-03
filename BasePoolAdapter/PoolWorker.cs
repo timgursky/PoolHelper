@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BasePoolAdapter
+﻿namespace BasePoolAdapter
 {
     public class PoolWorker
     {
+        public string Username { get; set; }
+        public bool IsAlive { get; set; }
+        public decimal Hashrate { get; set; }
     }
 }

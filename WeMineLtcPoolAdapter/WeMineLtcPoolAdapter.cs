@@ -8,29 +8,41 @@ namespace PoolAdapters
 {
     public class WeMineLtcPoolAdapter : PoolAdapter
     {
-        private const string ApiEndpoint = @"https://www.wemineltc.com/api?api_key=";
+        private const string ApiEndpoint = @"https://www.wemineltc.com/api";
 
-        public string ApiKey { get; set; }
+        public WeMineLtcPoolAdapterOptions Options { get; set; }
 
-        public WeMineLtcPoolAdapter(string apiKey)
+        public WeMineLtcPoolAdapter(WeMineLtcPoolAdapterOptions options)
         {
             PoolName = "We Mine LTC";
             PoolUrl = @"http://wemineltc.com/";
-            ApiKey = apiKey;
+            Options = options;
         }
 
         public override void GetPoolStatsAsync()
         {
             var client = new WebClient();
 
+            client.QueryString.Add("api_key", Options.ApiKey);
+
             var responseBuffer = client.DownloadData(ApiEndpoint);
             var parsedResponse = JObject.Parse(System.Text.Encoding.Default.GetString(responseBuffer));
 
-            var str = parsedResponse.Value<string>("last_block");
+            var poolStats = new PoolStats
+            {
+                GatheredOn = new DateTime(),
+                ConfirmedBalance = parsedResponse.Value<decimal>("confirmed_rewards"),
+                PaidOutAmount = parsedResponse.Value<decimal>("payout_history"),
+                Round = new PoolRound
+                {
+                    Estimate = parsedResponse.Value<decimal>("round_estimate"),
+                    Shares = parsedResponse.Value<int>("round_shares")
+                }
+            };
 
-            InvokeGetPoolStatsCompletedEvent(new PoolStats());
+            //TODO: Add support for workers
 
-            throw new NotImplementedException();
+            InvokeGetPoolStatsCompletedEvent(poolStats);
         }
     }
 }

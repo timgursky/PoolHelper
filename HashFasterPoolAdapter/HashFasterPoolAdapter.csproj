@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="HashFasterPoolAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HashFasterPoolAdapterOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BasePoolAdapter\BasePoolAdapter.csproj">

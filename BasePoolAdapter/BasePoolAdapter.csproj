@@ -46,6 +46,7 @@
     <Compile Include="Exceptions\PoolAdapterException.cs" />
     <Compile Include="Exceptions\PoolCommunicationException.cs" />
     <Compile Include="PoolAdapter.cs" />
+    <Compile Include="PoolAdapterOptions.cs" />
     <Compile Include="PoolRound.cs" />
     <Compile Include="PoolStats.cs" />
     <Compile Include="PoolWorker.cs" />

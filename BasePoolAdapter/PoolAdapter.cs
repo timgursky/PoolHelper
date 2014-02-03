@@ -11,7 +11,7 @@ namespace PoolAdapters
         public NetworkCredential Credentials { get; set; }
 
         public abstract void GetPoolStatsAsync();
-
+        
         protected void InvokeGetPoolStatsCompletedEvent(PoolStats poolStats)
         {
             GetPoolStatsCompleted(this, new GetPoolStatsEventArgs(poolStats));

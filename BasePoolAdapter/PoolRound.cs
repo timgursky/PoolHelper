@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BasePoolAdapter
+﻿namespace BasePoolAdapter
 {
     public class PoolRound
     {
+        public decimal Estimate { get; set; }
+        public int Shares { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Estimate: {0}; Shares: {1}", Estimate, Shares);
+        }
     }
 }
